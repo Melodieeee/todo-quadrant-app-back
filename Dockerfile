@@ -1,25 +1,17 @@
-# Use Maven image to build the project
-FROM maven:3.8.6-openjdk-17 AS build
+# 使用 Maven 3.9.6 + Temurin JDK 21 建置
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 
 WORKDIR /app
+COPY . .
 
-# Copy pom.xml and source code
-COPY pom.xml .
-COPY src ./src
-
-# Build the Spring Boot application (skip tests to speed up)
+# 建置 JAR 檔，跳過測試
 RUN mvn clean package -DskipTests
 
-# Use a lightweight OpenJDK image to run the application
-FROM openjdk:17-jdk-alpine
+# 執行階段使用精簡的 JDK 21 映像
+FROM eclipse-temurin:21-jdk-alpine
 
 WORKDIR /app
-
-# Copy the jar file from the build stage
 COPY --from=build /app/target/*.jar app.jar
 
-# Expose port 8080 (default Spring Boot port)
-EXPOSE 8080
-
-# Command to run the jar file
+# 執行 Spring Boot 應用程式
 ENTRYPOINT ["java", "-jar", "app.jar"]
