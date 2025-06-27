@@ -1,9 +1,8 @@
-package com.melody.mytodoquadrantappback.dao;
+package com.melody.todoquadrantappback.dao;
 
-import com.melody.mytodoquadrantappback.model.Task;
+import com.melody.todoquadrantappback.model.Task;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface TaskDao {
 

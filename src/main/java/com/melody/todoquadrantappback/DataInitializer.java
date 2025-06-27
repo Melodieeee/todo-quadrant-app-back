@@ -1,7 +1,5 @@
-package com.melody.mytodoquadrantappback;
+package com.melody.todoquadrantappback;
 
-import com.melody.mytodoquadrantappback.model.Task;
-import com.melody.mytodoquadrantappback.service.TaskService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

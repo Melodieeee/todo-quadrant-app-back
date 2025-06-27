@@ -1,8 +1,9 @@
-package com.melody.mytodoquadrantappback.security;
+package com.melody.todoquadrantappback.security;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -30,14 +31,17 @@ public class SecurityConfig {
                         .authenticationEntryPoint((request, response, authException) -> {
                             String uri = request.getRequestURI();
                             if (uri.startsWith("/api/")) {
+                                System.out.println("Unauthorized access to API: " + uri);
                                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
                             } else {
+                                System.out.println("Redirecting to OAuth2 login for: " + uri);
                                 response.sendRedirect("/oauth2/authorization/google");
                             }
                         })
                 )
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/error", "/oauth2/**").permitAll()
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth2 -> oauth2

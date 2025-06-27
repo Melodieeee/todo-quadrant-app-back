@@ -1,6 +1,6 @@
-package com.melody.mytodoquadrantappback.dao;
+package com.melody.todoquadrantappback.dao;
 
-import com.melody.mytodoquadrantappback.model.User;
+import com.melody.todoquadrantappback.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;

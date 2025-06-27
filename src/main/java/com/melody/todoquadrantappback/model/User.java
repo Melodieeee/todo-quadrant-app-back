@@ -1,4 +1,4 @@
-package com.melody.mytodoquadrantappback.model;
+package com.melody.todoquadrantappback.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

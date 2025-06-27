@@ -1,6 +1,6 @@
-package com.melody.mytodoquadrantappback.dao;
+package com.melody.todoquadrantappback.dao;
 
-import com.melody.mytodoquadrantappback.model.User;
+import com.melody.todoquadrantappback.model.User;
 
 import java.util.Optional;
 

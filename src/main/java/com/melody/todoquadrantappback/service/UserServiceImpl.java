@@ -1,7 +1,7 @@
-package com.melody.mytodoquadrantappback.service;
+package com.melody.todoquadrantappback.service;
 
-import com.melody.mytodoquadrantappback.dao.UserDao;
-import com.melody.mytodoquadrantappback.model.User;
+import com.melody.todoquadrantappback.dao.UserDao;
+import com.melody.todoquadrantappback.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

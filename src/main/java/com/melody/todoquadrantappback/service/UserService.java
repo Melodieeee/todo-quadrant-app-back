@@ -1,6 +1,6 @@
-package com.melody.mytodoquadrantappback.service;
+package com.melody.todoquadrantappback.service;
 
-import com.melody.mytodoquadrantappback.model.User;
+import com.melody.todoquadrantappback.model.User;
 
 public interface UserService {
     User getUserById(String id);

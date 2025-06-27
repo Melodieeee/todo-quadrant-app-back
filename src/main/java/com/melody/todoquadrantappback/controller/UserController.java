@@ -1,4 +1,4 @@
-package com.melody.mytodoquadrantappback.controller;
+package com.melody.todoquadrantappback.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,6 +11,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
+
 
     @GetMapping("/info")
     public Map<String, Object> getCurrentUser(@AuthenticationPrincipal OAuth2User principal) {

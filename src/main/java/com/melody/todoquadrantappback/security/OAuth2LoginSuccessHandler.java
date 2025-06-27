@@ -1,7 +1,8 @@
-package com.melody.mytodoquadrantappback.security;
+package com.melody.todoquadrantappback.security;
 
-import com.melody.mytodoquadrantappback.model.User;
-import com.melody.mytodoquadrantappback.service.UserService;
+import com.melody.todoquadrantappback.model.User;
+import com.melody.todoquadrantappback.service.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -15,6 +16,8 @@ import java.io.IOException;
 @Component
 public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
 
+    @Value("${FRONTEND_URL:http://localhost:5173}")
+    private String frontendUrl;
     private final UserService userService;
 
     public OAuth2LoginSuccessHandler(UserService userService) {
@@ -44,6 +47,7 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
         }
 
         // 登入成功後導向首頁
-        response.sendRedirect("http://localhost:5173");
+        response.sendRedirect(frontendUrl);
+        System.out.println("Redirecting to frontend URL: " + frontendUrl);
     }
 }

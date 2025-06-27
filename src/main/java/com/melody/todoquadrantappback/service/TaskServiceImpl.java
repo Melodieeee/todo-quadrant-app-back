@@ -1,7 +1,7 @@
-package com.melody.mytodoquadrantappback.service;
+package com.melody.todoquadrantappback.service;
 
-import com.melody.mytodoquadrantappback.dao.TaskDao;
-import com.melody.mytodoquadrantappback.model.Task;
+import com.melody.todoquadrantappback.dao.TaskDao;
+import com.melody.todoquadrantappback.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

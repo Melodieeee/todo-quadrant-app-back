@@ -1,21 +1,17 @@
-package com.melody.mytodoquadrantappback.controller;
+package com.melody.todoquadrantappback.controller;
 
-import com.melody.mytodoquadrantappback.model.Task;
-import com.melody.mytodoquadrantappback.model.User;
-import com.melody.mytodoquadrantappback.security.CustomOAuth2UserService;
-import com.melody.mytodoquadrantappback.service.TaskService;
-import com.melody.mytodoquadrantappback.service.UserService;
+import com.melody.todoquadrantappback.model.Task;
+import com.melody.todoquadrantappback.model.User;
+import com.melody.todoquadrantappback.service.TaskService;
+import com.melody.todoquadrantappback.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -117,7 +113,7 @@ public class TaskController {
         String email = principal.getAttribute("email");
         User user = userService.getUserByEmail(email);
         taskService.deleteTaskByIdAndUserId(id, user.getId());
-        System.out.println("Task deleted");
+        System.out.println("deleteTask");
     }
 
     private Instant parseDate(String input) {

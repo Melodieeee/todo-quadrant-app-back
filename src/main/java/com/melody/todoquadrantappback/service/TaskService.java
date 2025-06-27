@@ -1,6 +1,6 @@
-package com.melody.mytodoquadrantappback.service;
+package com.melody.todoquadrantappback.service;
 
-import com.melody.mytodoquadrantappback.model.Task;
+import com.melody.todoquadrantappback.model.Task;
 
 import java.util.List;
 

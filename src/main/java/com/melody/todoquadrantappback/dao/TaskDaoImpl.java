@@ -1,6 +1,6 @@
-package com.melody.mytodoquadrantappback.dao;
+package com.melody.todoquadrantappback.dao;
 
-import com.melody.mytodoquadrantappback.model.Task;
+import com.melody.todoquadrantappback.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Criteria;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class TaskDaoImpl implements TaskDao {

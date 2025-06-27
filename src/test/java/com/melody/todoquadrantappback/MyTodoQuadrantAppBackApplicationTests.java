@@ -1,4 +1,4 @@
-package com.melody.mytodoquadrantappback;
+package com.melody.todoquadrantappback;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
