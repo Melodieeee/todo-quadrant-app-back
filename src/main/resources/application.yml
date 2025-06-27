@@ -29,3 +29,8 @@ server:
   error:
     include-stacktrace: never
     include-message: never
+  servlet:
+    session:
+      cookie:
+        same-site: None
+        secure: true
