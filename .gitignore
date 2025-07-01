@@ -38,3 +38,6 @@ src/main/resources/.env
 # Build output
 build/
 out/
+
+# macOS
+.DS_Store
