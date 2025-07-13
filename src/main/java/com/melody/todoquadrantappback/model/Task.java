@@ -27,19 +27,17 @@ public class Task {
 
     public Task() {}
 
-    public Task(String id, String userId, String title, Boolean important, Boolean urgent,
-                Instant createdAt, String description, Instant dueDate,
-                boolean completed, int orderIndex) {
+    public Task(String id, String userId) {
         this.id = id;
         this.userId = userId;
+    }
+
+    public Task(String title, String userId, Instant createdAt) {
         this.title = title;
-        this.important = important;
-        this.urgent = urgent;
+        this.userId = userId;
         this.createdAt = createdAt;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.completed = completed;
-        this.orderIndex = orderIndex;
+        this.completed = false;
+        this.orderIndex = 0;
     }
 
     public String getId() { return id; }

@@ -12,6 +12,14 @@ public class User {
     private String email;
     private String picture; // Google 提供的頭像 URL
 
+    public User() {}
+
+    public User(String email, String name, String picture) {
+        this.email = email;
+        this.name = name;
+        this.picture = picture;
+    }
+
     public String getId() {
         return id;
     }

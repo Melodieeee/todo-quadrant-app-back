@@ -31,6 +31,11 @@ src/
 │       ├── application.yml
 │       └── static/
 └── test/
+    └── java/
+    └── com/melody/todoquadrantback/
+        ├── controller/
+        └──service/
+
 ```
 
 ---
@@ -113,6 +118,55 @@ Run with:
 ```bash
 docker compose up --build
 ```
+
+---
+
+## 🧪 Testing
+This project includes both **unit tests** and **integration tests** to ensure reliability and maintainability.
+### ✅ Test Frameworks & Tools
+* **JUnit 5** – for writing unit and integration tests
+* **Spring Boot Test** – for testing application context and REST endpoints
+* **MockMvc** – for controller layer testing without starting the full server
+
+### 📂 Test Structure
+Test files are located under:
+```
+src/
+└── test/
+    └── java/
+        └── com/melody/todoquadrantback/
+            ├── controller/    ← API integration tests
+            ├── service/       ← business logic unit tests
+            ├── repository/    ← repository integration tests (optional)
+```
+
+### ▶️ Run All Tests
+To run tests locally:
+```
+./mvnw test
+```
+Or run specific test class in your IDE.
+
+---
+
+## ⚙️ CI Integration
+
+This project uses **GitHub Actions** for continuous integration. All tests are automatically executed on each push and pull request to the `main` branch.
+
+**LINE Notify integration** is included to send notifications on both test **success** and **failure**.
+
+- ✅ **Example Workflow:** [backend-ci.yml](.github/workflows/backend-ci.yml)
+
+### 🔔 How to Enable LINE Notify
+
+1. Create a LINE Developer account and set up a new **Messaging API** channel.
+2. Get the following from your channel settings:
+   - **LINE_USER_ID** (your own LINE user ID)
+   - **LINE_CHANNEL_ACCESS_TOKEN** (Messaging API token)
+3. Add the following secrets to your GitHub repository:
+   - `LINE_USER_ID`
+   - `LINE_CHANNEL_ACCESS_TOKEN`
+4. The CI workflow will automatically send messages to your LINE account on test results.
 
 ---
 

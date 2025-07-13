@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Criteria;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class TaskDaoImpl implements TaskDao {
@@ -56,8 +57,9 @@ public class TaskDaoImpl implements TaskDao {
     }
 
     @Override
-    public Task findById(String id) {
-        return mongoTemplate.findById(id, Task.class);
+    public Optional<Task> findById(String id) {
+        Task task = mongoTemplate.findById(id, Task.class);
+        return Optional.ofNullable(task);
     }
 
 

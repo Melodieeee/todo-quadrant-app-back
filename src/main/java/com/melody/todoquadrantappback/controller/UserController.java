@@ -1,8 +1,13 @@
 package com.melody.todoquadrantappback.controller;
 
+import com.melody.todoquadrantappback.dto.UserInfoResponse;
+import com.melody.todoquadrantappback.exception.UserUnauthorizedException;
+import com.melody.todoquadrantappback.model.User;
+import com.melody.todoquadrantappback.service.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
@@ -12,18 +17,14 @@ import java.util.Map;
 @RequestMapping("/api/user")
 public class UserController {
 
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/info")
-    public Map<String, Object> getCurrentUser(@AuthenticationPrincipal OAuth2User principal) {
-        if (principal == null) {
-            throw new RuntimeException("User not authenticated");
-        }
+    public UserInfoResponse getCurrentUser(@AuthenticationPrincipal OAuth2User oAuth2User) {
 
-        return Map.of(
-                "name", principal.getAttribute("name"),
-                "email", principal.getAttribute("email"),
-                "picture", principal.getAttribute("picture")
-        );
+        User user = userService.getAuthenticatedUser(oAuth2User);
+        return new UserInfoResponse(user.getName(), user.getEmail(), user.getPicture());
     }
 
     @PostMapping("/logout")

@@ -15,41 +15,28 @@ import java.util.List;
 public class WebConfig {
     @Value("${FRONTEND_URL}")
     private  String frontendUrl;
-//    @Bean
-//    public WebMvcConfigurer corsConfigurer() {
-//        System.out.println("Configuring CORS with frontend URL: " + frontendUrl);
-//        return new WebMvcConfigurer() {
-//            @Override
-//            public void addCorsMappings(CorsRegistry registry) {
-//                registry.addMapping("/**")
-//                        .allowedOrigins(frontendUrl)
-//                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-//                        .allowedHeaders("*")
-//                        .allowCredentials(true);
-//            }
-//        };
-//    }
-        @Bean
-        public CorsConfigurationSource corsConfigurationSource() {
-            System.out.println("Configuring CORS with frontend URL: " + frontendUrl);
 
-            CorsConfiguration config = new CorsConfiguration();
-            config.setAllowedOrigins(List.of(frontendUrl)); // 設定允許的前端 URL
-            config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-            config.setAllowedHeaders(List.of("*")); // 允許所有標頭
-            config.setAllowCredentials(true); // 允許 cookie
-            config.setMaxAge(3600L); // 預檢請求快取時間（可選）
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        System.out.println("Configuring CORS with frontend URL: " + frontendUrl);
 
-            UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-            source.registerCorsConfiguration("/**", config);
-            return source;
-        }
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOrigins(List.of(frontendUrl)); // 設定允許的前端 URL
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedHeaders(List.of("*")); // 允許所有標頭
+        config.setAllowCredentials(true); // 允許 cookie
+        config.setMaxAge(3600L); // 預檢請求快取時間
 
-        @Bean
-        public WebMvcConfigurer webMvcConfigurer() {
-            return new WebMvcConfigurer() {
-                // 可以保留這個空的實作，必要時加其他 MVC 設定
-            };
-        }
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+        return source;
+    }
+
+    @Bean
+    public WebMvcConfigurer webMvcConfigurer() {
+        return new WebMvcConfigurer() {
+            // 必要時加其他 MVC 設定
+        };
+    }
 }
 
