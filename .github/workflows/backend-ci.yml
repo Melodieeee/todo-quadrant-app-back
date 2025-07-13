@@ -8,6 +8,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      MONGODB_URI: mongodb://localhost:27017/testdb
+      GOOGLE_CLIENT_ID: dummy-id-for-test
+      GOOGLE_CLIENT_SECRET: dummy-secret-for-test
+      FRONTEND_URL: http://localhost:5173
+
     steps:
       - name: Check out code
         uses: actions/checkout@v4
