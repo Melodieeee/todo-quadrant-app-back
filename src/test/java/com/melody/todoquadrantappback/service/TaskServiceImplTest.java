@@ -19,10 +19,8 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class TaskServiceImplTest {
-
     @Mock
     private TaskDao taskDao;
-
     @InjectMocks
     private TaskServiceImpl taskService;
 

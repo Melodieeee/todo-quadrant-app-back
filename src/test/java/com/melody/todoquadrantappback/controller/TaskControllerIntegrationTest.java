@@ -30,10 +30,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@TestPropertySource(properties = {
-        "spring.data.mongodb.uri=mongodb+srv://melody:yu@cluster0.whmavgi.mongodb.net/testdb?retryWrites=true&w=majority",
-        "FRONTEND_URL=http://localhost:5173"
-})
 class TaskControllerIntegrationTest {
 
     @Autowired private MockMvc mockMvc;

@@ -16,12 +16,10 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {
-
     @Mock
     private UserDao userDao;
     @InjectMocks
     private UserServiceImpl userService;
-
 
     @Test
     void getUserById_shouldReturnUser() {

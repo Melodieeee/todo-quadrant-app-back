@@ -149,9 +149,9 @@ Or run specific test class in your IDE.
 
 ---
 
-## ⚙️ CI Integration
+## ⚙️ CI/CD Integration
 
-This project uses **GitHub Actions** for continuous integration. All tests are automatically executed on each push and pull request to the `main` branch.
+This project uses **GitHub Actions** for continuous integration and deployment. All tests are automatically executed on each push to the `main` branch.
 
 **LINE Notify integration** is included to send notifications on both test **success** and **failure**.
 

@@ -77,3 +77,14 @@ jobs:
               }
             ]
           }'
+
+      - name: Deploy to Render
+        if: success()
+        run: |
+          if [ -z "${{ secrets.RENDER_DEPLOY_HOOK }}" ]; then
+            echo "❌ RENDER_DEPLOY_HOOK is not set. Skipping deployment."
+            exit 1
+          fi
+          echo "✅ Tests passed. Triggering Render deploy..."
+          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+
