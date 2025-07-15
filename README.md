@@ -200,8 +200,6 @@ You can deploy to [Render](https://render.com):
 4. Use Dockerfile to build and deploy
 5. Ensure MongoDB Atlas allows Render IP access
 
-Live backend URL: [https://todo-quadrant-app-back.onrender.com](https://todo-quadrant-app-back.onrender.com)
-
 ---
 
 ## 🧩 Frontend Repository
